@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+
 export default function Header(){
     return(
         <header>
@@ -12,7 +15,7 @@ export default function Header(){
                     <div className="nav-controls">
                         <a>Home</a>
                         <a>Shop</a>
-                        <p>placeholder</p>
+                        <FontAwesomeIcon icon={faCartShopping} />
                     </div>
                     </div>
                 </nav>
