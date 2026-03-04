@@ -60,9 +60,17 @@ body{
   flex-direction:column;
 }
 /* Header styles */
+nav{
+  padding:1rem 4rem;
+}
 .nav-wrapper,.newsletter-div-wrapper{
   max-width:1400px;
   margin-inline:auto;
+}
+.nav-controls{
+  display:flex;
+  gap:1rem;
+  align-items:center;
 }
 .newsletter-div{
  background-color:black;
@@ -70,7 +78,7 @@ body{
 .newsletter-div-wrapper{
   color:white;
   text-align:center; 
-  padding: 0.4rem 2rem;
+  padding: 0.4rem 4rem;
 }
 .nav-wrapper{
   display:flex;
@@ -92,7 +100,7 @@ footer{
 }
 .footer-wrapper{
   display:flex;
-  padding: 0.4rem 2rem;
+  padding: 1rem 4rem;
   justify-content:space-between;
   max-width:1400px;
   margin-inline:auto;

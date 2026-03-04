@@ -10,8 +10,8 @@ export default function Header(){
                     <div className="nav-wrapper">
                     <h1>Tropical Trails</h1>
                     <div className="nav-controls">
-                        <button>Home</button>
-                        <button>Shop</button>
+                        <a>Home</a>
+                        <a>Shop</a>
                         <p>placeholder</p>
                     </div>
                     </div>
