@@ -1,7 +1,7 @@
 import beachImg from '../../assets/images/beach.jpg';
 import styles from './home-page.module.css';
 
-export default function Homepage(){
+export default function HomePage(){
     return(
         <>
             <BannerSection/>

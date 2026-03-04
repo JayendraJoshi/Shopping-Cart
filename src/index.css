@@ -58,6 +58,7 @@ body{
   min-height:100%;
   display:flex;
   flex-direction:column;
+  font-family: "Raleway", sans-serif;
 }
 /* Header styles */
 nav{
@@ -89,8 +90,12 @@ nav{
 main{
   flex-grow:1;
   text-align:center;
+  display:flex;
 }
-
+.main-wrapper{
+  display:flex;
+  flex-grow:1;
+}
 
 
 /* Footer styles */
