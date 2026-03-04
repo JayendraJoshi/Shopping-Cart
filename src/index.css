@@ -63,6 +63,7 @@ body{
 /* Header styles */
 nav{
   padding:1rem 4rem;
+  box-shadow: 0 6px 10px -4px rgba(0,0,0,.3);
 }
 .nav-wrapper,.newsletter-div-wrapper{
   max-width:1400px;
@@ -75,11 +76,11 @@ nav{
 }
 .newsletter-div{
  background-color:black;
+ padding: 0.4rem 4rem;
 }
 .newsletter-div-wrapper{
   color:white;
   text-align:center; 
-  padding: 0.4rem 4rem;
 }
 .nav-wrapper{
   display:flex;
@@ -91,10 +92,13 @@ main{
   flex-grow:1;
   text-align:center;
   display:flex;
+  padding: 4rem 4rem;
 }
 .main-wrapper{
   display:flex;
   flex-grow:1;
+  max-width:1400px;
+  margin-inline:auto;
 }
 
 
@@ -102,10 +106,10 @@ main{
 footer{
   background-color:black;
   color:white;
+  padding: 1rem 4rem;
 }
 .footer-wrapper{
   display:flex;
-  padding: 1rem 4rem;
   justify-content:space-between;
   max-width:1400px;
   margin-inline:auto;
