@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import Header from './components/header'
-import Main from './components/main'
 import Footer from './components/footer'
 import './App.css'
+import { Outlet } from "react-router";
 
 function App() {
 
   return (
     <>
       <Header></Header>
-      <Main></Main>
+      <Outlet/>
       <Footer></Footer>
     </>
   )
