@@ -1,18 +1,18 @@
 import beachImg from '../../assets/images/beach.jpg';
 import styles from './home-page.module.css';
-import { Link } from "react-router";
 import { useNavigate } from "react-router";
+import { useOutletContext } from "react-router";
 
 
 export default function HomePage(){
     let navigate = useNavigate();
+    const items = useOutletContext();
     return(
         <section className="home-page">
             <BannerSection navigate={navigate}/>
-            <BestsellerSection></BestsellerSection>
+            <BestsellerSection navigate={navigate}></BestsellerSection>
         </section>          
     )
-    
 }
 
 function BannerSection({navigate}){
@@ -29,7 +29,7 @@ function BannerSection({navigate}){
     )
 }
 
-function BestsellerSection(){
+function BestsellerSection({navigate}){
     return(
         <section className={styles['bestsellers']}>   
             <h2>Bestsellers</h2>
@@ -45,9 +45,15 @@ function BestsellerSection(){
                 <div>placeholder</div>
                 <div>placeholder</div>
             </div>
-            <button><Link to="/shop">View All </Link></button>
+            <button onClick={()=>navigate("/shop")}>View All</button>
         </section>
     )
+}
+
+function getBestsellerItems(items,quantity){
+    const bestsellerArray = [...items];
+    bestsellerArray.sort((a,b)=>b.rating - a.rating);
+    return bestsellerArray.slice(0,quantity);
 }
 
 //To-Do
