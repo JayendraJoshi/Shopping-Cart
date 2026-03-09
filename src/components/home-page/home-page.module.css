@@ -29,7 +29,10 @@
 .banner-text h1{
     margin-bottom:1rem;
 }
-
+.banner-text button a{
+    text-decoration:none;
+    color:black;
+}
 .bestsellers{
     display:flex;
     flex-direction:column;
@@ -59,4 +62,9 @@
     padding:8px 24px;
     border-radius:16px;
     margin-top:1rem;
+}
+
+.bestsellers button a{
+    text-decoration:none;
+    color:white;
 }

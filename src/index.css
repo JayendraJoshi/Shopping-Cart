@@ -60,6 +60,9 @@ body{
   flex-direction:column;
   font-family: "Raleway", sans-serif;
 }
+button, a{
+  cursor:pointer
+}
 /* Header styles */
 nav{
   padding:1rem 4rem;
@@ -90,6 +93,11 @@ nav{
 .nav-link{
   color:black;
   text-decoration: none;
+  padding:4px 8px;
+  border-radius:12px;
+}
+.nav-link.active{
+  background-color:rgb(212, 211, 211);
 }
 /* Main styles */
 main{
@@ -121,4 +129,11 @@ footer{
 }
 .socials{
   display:flex;
+}
+.socials > *{
+  cursor:pointer;
+}
+footer p:hover{
+  color:gray;
+  cursor:pointer;
 }

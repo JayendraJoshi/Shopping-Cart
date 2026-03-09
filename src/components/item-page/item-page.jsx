@@ -22,3 +22,6 @@ export default function ItemPage(){
     )
 
 }
+
+//compare params with ids of all items
+//if there is a match, get data of that item and display it's data here

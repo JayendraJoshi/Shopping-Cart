@@ -1,23 +1,27 @@
 import beachImg from '../../assets/images/beach.jpg';
 import styles from './home-page.module.css';
+import { Link } from "react-router";
+import { useNavigate } from "react-router";
+
 
 export default function HomePage(){
+    let navigate = useNavigate();
     return(
         <section className="home-page">
-            <BannerSection/>
+            <BannerSection navigate={navigate}/>
             <BestsellerSection></BestsellerSection>
         </section>          
     )
     
 }
 
-function BannerSection(){
+function BannerSection({navigate}){
     return(
         <section className={styles.banner}>
             <div className={styles['banner-text']}>
                 <h1>Summer is on it's way</h1>
                 <p>We offer affordable and sustainable beach accessoires of the highest quality, 100% handmade and sourced locally from certified partners. Get yours now!</p>
-                <button>Shop Now</button>
+                <button onClick={()=>navigate("/shop")}>Shop Now </button>
             </div>
             <img className={styles['banner-image']} src={beachImg}></img>
             
@@ -41,12 +45,12 @@ function BestsellerSection(){
                 <div>placeholder</div>
                 <div>placeholder</div>
             </div>
-            <button>View all</button>
+            <button><Link to="/shop">View All </Link></button>
         </section>
     )
 }
 
 //To-Do
-// Add banner
-// Add bestseller overview
-// Figure out if the banner should cover the viewport or if you want to user to see the whole homepage on his viewport
+//get items state through outlet props
+// get bestseller items and give them to item-preview to get previews
+// display them under bestseller section
