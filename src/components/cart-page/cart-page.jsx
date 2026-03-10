@@ -1,9 +1,12 @@
 import styles from './cart-page.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { useOutletContext } from "react-router";
 
 
 export default function CartPage(){
+    const contextArray = useOutletContext();
+    const cartItems = contextArray[0];
     return (
         <section className={styles["cart-page"]}>
             <h2>Shopping Cart</h2>
@@ -50,3 +53,10 @@ export default function CartPage(){
         </section>
     )
 }
+function getCartItemPreviews(){
+
+}
+
+//loop through cartItems array and create divs for each cart items and render them
+// get total from all cartItems and display them on order summary
+// display some sort of confirmation when the user clicks "order"

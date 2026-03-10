@@ -3,7 +3,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router";
 import { NavLink } from "react-router";
 
-export default function Header( {cartQuantity} ){
+export default function Header( {cartItems} ){
     return(
         <header>
              
@@ -23,7 +23,7 @@ export default function Header( {cartQuantity} ){
                             >Shop</NavLink>
                            <NavLink to="cart" className={({isActive}) => [isActive ? "active" : "",
                                                                             "nav-link"].join(" ")}
-                            ><FontAwesomeIcon icon={faCartShopping}/> </NavLink> 
+                            ><FontAwesomeIcon icon={faCartShopping}/><span>{getTotalCartItemsQuantity(cartItems)}</span> </NavLink> 
                         </div>
                     </div>
                 </nav>
@@ -32,4 +32,13 @@ export default function Header( {cartQuantity} ){
        
     )
     
+}
+function getTotalCartItemsQuantity(cartItems){
+    let quantity = 0;
+   if(cartItems.length!=0){
+        for(let i = 0;i< cartItems.length;i++){
+            quantity = quantity + cartItems[i][1];
+        }
+    }
+    return quantity;
 }

@@ -7,8 +7,8 @@ export default function ItemPage(){
     const [itemQuantity,setItemQuantity] = useState(1);
     const contextArray = useOutletContext();
     const items = contextArray[0];
-    const setCartQuantity = contextArray[3];
-    const itemToDisplay = items.find(item=>item.id == id);
+    const setCartItems = contextArray[1];
+    const currentItem = items.find(item=>item.id == id);
 
     if(!items.length){
         return <p className="loading-message">Loading items...</p>
@@ -16,11 +16,11 @@ export default function ItemPage(){
 
     return(
         <section className={styles["item-page"]}>
-            <img src={itemToDisplay.images[0]}></img>
+            <img src={currentItem.images[0]}></img>
             <div className={styles["item-overview"]}>
-                <h2 className={styles.name}>{itemToDisplay.title}</h2>
-                <p className={styles.price}>{itemToDisplay.price+" €"}</p>
-                <p className={styles.description}>{itemToDisplay.description}</p>
+                <h2 className={styles.name}>{currentItem.title}</h2>
+                <p className={styles.price}>{currentItem.price+" €"}</p>
+                <p className={styles.description}>{currentItem.description}</p>
                 <div className={styles["item-controls"]}>
                     <div className={styles["quantity-controls"]}>
                         <button onClick={()=>setItemQuantity(prev=>{
@@ -38,11 +38,27 @@ export default function ItemPage(){
                             return newNumber;
                         })}>+</button>
                     </div>
-                    <button className={styles["cart-button"]} onClick={()=>{setCartQuantity(prev=>{ let newNumber = prev + itemQuantity; console.log(newNumber);return newNumber;}),setItemQuantity(1)}}>Add to Cart</button>
+                    <button className={styles["cart-button"]} onClick={()=>{addItemToCartItems(currentItem.id,setCartItems,itemQuantity),setItemQuantity(1)}}>Add to Cart</button>
                 </div>
             </div>
         </section>
     )
+}
+
+function addItemToCartItems(idOfCurrentItem,setCartItems, itemQuantity){
+
+    setCartItems(prev=>{
+       let newArray = [...prev];
+       console.log(newArray);
+        for(let i = 0;i<newArray.length;i++){
+            if(newArray[i][0] == idOfCurrentItem){
+                newArray[i] = [newArray[i][0],newArray[i][1] + itemQuantity];
+                return newArray;
+            }
+        }
+        newArray.push([idOfCurrentItem,itemQuantity]);
+        return newArray;
+    })
 
 }
 

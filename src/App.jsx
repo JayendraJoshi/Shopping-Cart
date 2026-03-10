@@ -6,15 +6,19 @@ import { Outlet } from "react-router";
 
 function App() {
 
-  const [cartQuantity,setCartQuantity] = useState(0);
+  const [cartItems,setCartItems] = useState([]);
 
   return (
     <>
-      <Header cartQuantity={cartQuantity} ></Header>
-      <Outlet context={setCartQuantity}/>
+      <Header cartItems={cartItems} ></Header>
+      <Outlet context={[cartItems,setCartItems]}/>
       <Footer></Footer>
     </>
   )
 }
 
 export default App
+
+//To do
+//create a 2 dimensional array , the inner ones hold an item id and its quantity, the outher one holds all cartitemArrays
+

@@ -4,7 +4,8 @@ import {useEffect, useState} from "react";
 
 export default function MainLayout({}){
     const [items,setItems] = useState([]);
-    const setCartQuantity = useOutletContext();
+    const contextArray = useOutletContext();
+    const setCartItems = contextArray[1];
 
     useEffect(()=>{
         getItemsData(setItems);
@@ -13,7 +14,7 @@ export default function MainLayout({}){
     return(
         <main>
             <div className="main-wrapper">
-               <Outlet context={[items, setCartQuantity]}></Outlet>
+               <Outlet context={[items, setCartItems]}></Outlet>
             </div>
         </main>
         
