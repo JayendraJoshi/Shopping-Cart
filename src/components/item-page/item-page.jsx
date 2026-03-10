@@ -1,21 +1,44 @@
-import beachBottleImg from '../../assets/images/beach-bottle.jpg';
 import styles from './item-page.module.css';
+import { useOutletContext, useParams } from "react-router";
+import { useState } from "react";
 
 export default function ItemPage(){
+    const { id } = useParams();
+    const [itemQuantity,setItemQuantity] = useState(1);
+    const contextArray = useOutletContext();
+    const items = contextArray[0];
+    const setCartQuantity = contextArray[3];
+    const itemToDisplay = items.find(item=>item.id == id);
+
+    if(!items.length){
+        return <p className="loading-message">Loading items...</p>
+    }
+
     return(
         <section className={styles["item-page"]}>
-            <img src={beachBottleImg}></img>
+            <img src={itemToDisplay.images[0]}></img>
             <div className={styles["item-overview"]}>
-                <h2 className={styles.name}>Beach Premium Bottle</h2>
-                <p className={styles.price}>22.00€</p>
-                <p className={styles.description}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <h2 className={styles.name}>{itemToDisplay.title}</h2>
+                <p className={styles.price}>{itemToDisplay.price+" €"}</p>
+                <p className={styles.description}>{itemToDisplay.description}</p>
                 <div className={styles["item-controls"]}>
                     <div className={styles["quantity-controls"]}>
-                        <button>-</button>
-                        <p className={styles["quantity-value"]}>1</p>
-                        <button>+</button>
+                        <button onClick={()=>setItemQuantity(prev=>{
+                            let newNumber;
+                            if(prev-1>=1){
+                                newNumber = prev -1;
+                            }else{
+                                newNumber = 1;
+                            }
+                            return newNumber;
+                        })}>-</button>
+                        <p className={styles["quantity-value"]}>{itemQuantity}</p>
+                        <button onClick={()=>setItemQuantity(prev=>{
+                            let newNumber = prev +1;
+                            return newNumber;
+                        })}>+</button>
                     </div>
-                    <button className={styles["cart-button"]}>Add to Cart</button>
+                    <button className={styles["cart-button"]} onClick={()=>{setCartQuantity(prev=>{ let newNumber = prev + itemQuantity; console.log(newNumber);return newNumber;}),setItemQuantity(1)}}>Add to Cart</button>
                 </div>
             </div>
         </section>

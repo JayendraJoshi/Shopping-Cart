@@ -2,15 +2,18 @@ import beachImg from '../../assets/images/beach.jpg';
 import styles from './home-page.module.css';
 import { useNavigate } from "react-router";
 import { useOutletContext } from "react-router";
+import ItemsPreview from "../items-preview";
 
 
 export default function HomePage(){
     let navigate = useNavigate();
-    const items = useOutletContext();
+    const contextArray = useOutletContext();
+    const items = contextArray[0];
+    const bestsellerItems = getBestsellerItems(items,10);
     return(
         <section className="home-page">
             <BannerSection navigate={navigate}/>
-            <BestsellerSection navigate={navigate}></BestsellerSection>
+            <BestsellerSection navigate={navigate} bestsellerItems={bestsellerItems}></BestsellerSection>
         </section>          
     )
 }
@@ -29,21 +32,12 @@ function BannerSection({navigate}){
     )
 }
 
-function BestsellerSection({navigate}){
+function BestsellerSection({navigate, bestsellerItems}){
     return(
         <section className={styles['bestsellers']}>   
             <h2>Bestsellers</h2>
             <div className={styles['bestsellers-items-container']}>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
-                <div>placeholder</div>
+                <ItemsPreview items={bestsellerItems}></ItemsPreview>
             </div>
             <button onClick={()=>navigate("/shop")}>View All</button>
         </section>

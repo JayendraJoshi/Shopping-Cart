@@ -6,10 +6,12 @@ import { Outlet } from "react-router";
 
 function App() {
 
+  const [cartQuantity,setCartQuantity] = useState(0);
+
   return (
     <>
-      <Header></Header>
-      <Outlet/>
+      <Header cartQuantity={cartQuantity} ></Header>
+      <Outlet context={setCartQuantity}/>
       <Footer></Footer>
     </>
   )

@@ -18,7 +18,7 @@ const routes = [
         { index: true, element: <Navigate to="/home" replace /> },
         { path: "home", element: <HomePage /> },
         { path: "shop", element: <ShopPage /> },
-        { path: "shop/item", element: <ItemPage /> },
+        { path: "shop/item/:id", element: <ItemPage /> },
         { path: "cart", element: <CartPage /> },
       ],
     },

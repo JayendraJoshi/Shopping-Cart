@@ -1,8 +1,10 @@
 import { Outlet } from "react-router";
+import { useOutletContext } from "react-router";
 import {useEffect, useState} from "react";
 
-export default function MainLayout(){
+export default function MainLayout({}){
     const [items,setItems] = useState([]);
+    const setCartQuantity = useOutletContext();
 
     useEffect(()=>{
         getItemsData(setItems);
@@ -11,7 +13,7 @@ export default function MainLayout(){
     return(
         <main>
             <div className="main-wrapper">
-               <Outlet context={items}></Outlet>
+               <Outlet context={[items, setCartQuantity]}></Outlet>
             </div>
         </main>
         
@@ -29,7 +31,6 @@ function getItemsData(setItems){
 function getProductsArray(json){
     return json.products;
 }
-
 function getSummerItems(productsArray){
     const summerItemsArray = [];
     for(let i = 0;i< productsArray.length;i++){
