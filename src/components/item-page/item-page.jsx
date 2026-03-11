@@ -7,7 +7,7 @@ export default function ItemPage(){
     const [itemQuantity,setItemQuantity] = useState(1);
     const contextArray = useOutletContext();
     const items = contextArray[0];
-    const setCartItems = contextArray[1];
+    const setCartItems = contextArray[2];
     const currentItem = items.find(item=>item.id == id);
 
     if(!items.length){
