@@ -49,7 +49,7 @@ function getCartItemPreviews(cartItems,setCartItems,items){
             <div className={styles["cart-item"]} key={fullItemObject.id}>
                 <div className="item-description">
                     <Link to={`/shop/item/${fullItemObject.id}`} className={styles["title"]}>{fullItemObject.title}</Link>
-                    <p>{`${fullItemObject.price} € each (Subtotal: ${getSubtotal(cartItems,items)} €)`}</p>
+                    <p>{`${fullItemObject.price} € each (Subtotal: ${getSubtotalOfOneItem(cartItem,items)} €)`}</p>
                 </div>    
                 <div className={styles["item-controls"]}>
                     <div className={styles["quantity-control"]}>
@@ -111,8 +111,6 @@ function getSubtotal(cartItems,items){
     for(const cartItem of cartItemsWithPrice){
         price = price + (cartItem[1]*cartItem[2]);
     }
-    console.log(cartItemsWithPrice)
-    console.log(price);
     return price / 100;
 }
 function getShipping(cartItems,items){
@@ -137,4 +135,9 @@ function getTotal(cartItems,items){
 }
 function confirmOrder(){
 
+}
+function getSubtotalOfOneItem(cartItem,items){
+    let fullItem = items.find(item=>item.id==cartItem[0]);
+    const priceCents = Math.round(fullItem.price * 100);
+    return (priceCents * cartItem[1])/100;
 }

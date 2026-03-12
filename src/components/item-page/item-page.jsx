@@ -19,6 +19,7 @@ export default function ItemPage(){
             <img src={currentItem.images[0]}></img>
             <div className={styles["item-overview"]}>
                 <h2 className={styles.name}>{currentItem.title}</h2>
+                <p>{currentItem.rating+" ★"}</p>
                 <p className={styles.price}>{currentItem.price+" €"}</p>
                 <p className={styles.description}>{currentItem.description}</p>
                 <div className={styles["item-controls"]}>

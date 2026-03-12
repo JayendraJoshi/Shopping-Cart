@@ -1,6 +1,7 @@
 .item-page{
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:4rem;
     flex-grow:1;
 }
@@ -17,6 +18,11 @@
    gap:1rem;
    text-align:left;
    max-width:600px;
+}
+.item-overview{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 .item-controls{
     margin-top:2rem;
