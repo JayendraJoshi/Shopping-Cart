@@ -36,9 +36,7 @@ function getProductsArray(json){
 function getSummerItems(productsArray){
     const summerItemsArray = [];
     for(let i = 0;i< productsArray.length;i++){
-        if(productsArray[i].category =='tops' 
-            || productsArray[i].category=='sunglasses'
-            || productsArray[i].category =='sports-accessories'
+        if(productsArray[i].category =='sports-accessories'
             ){
             summerItemsArray.push(productsArray[i]);
         }

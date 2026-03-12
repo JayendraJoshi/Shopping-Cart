@@ -13,7 +13,7 @@ export default function Header( {cartItems} ){
                     </div>
                 <nav>
                     <div className="nav-wrapper">
-                        <h1><Link to="home" className="nav-link">Tropical Trails</Link></h1>
+                        <h1><Link to="home" className="nav-link">SportsWorld</Link></h1>
                         <div className="nav-controls">
                             <NavLink to="home" className={({isActive}) => [isActive ? "active" : "",
                                                                             "nav-link"].join(" ")}
