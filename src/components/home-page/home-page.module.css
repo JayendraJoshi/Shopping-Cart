@@ -1,7 +1,13 @@
-.banner{
+.banner-wrapper{
+     padding:2rem 0rem;
     display:flex;
     background-color:black;
     color:white;
+    max-width:1400px;
+    margin-inline:auto;
+}
+.banner{ 
+    background-color:black;  
 }
 .banner button{
     background-color:#d85b35;
@@ -28,6 +34,7 @@
 }
 .banner-text h1{
     margin-bottom:1rem;
+    font-size:2.5rem;
 }
 .banner-text button a{
     text-decoration:none;
@@ -41,13 +48,15 @@
 }
 .bestsellers h2{
     margin-bottom:1rem;
+    font-size:2rem;
+    color:black;
 }
 .bestsellers-items-container{
    display:grid;
    grid-template-columns:repeat(5,1fr);
    margin-inline:auto;
    gap:2rem;
-
+   max-width:1400px;
 }
 .bestsellers-items-container > div{
     min-height:250px;
@@ -57,11 +66,12 @@
 }
 .bestsellers button{
     align-self:center;
-    background-color:black;
-    color:white;
-    padding:8px 24px;
+    background-color:#d85b35;
+    color:black;
+    padding:16px 34px;
     border-radius:16px;
     margin-top:1rem;
+    border:none;
 }
 
 .bestsellers button a{

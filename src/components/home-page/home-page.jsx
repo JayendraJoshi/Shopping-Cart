@@ -22,13 +22,16 @@ export default function HomePage(){
 function BannerSection({navigate}){
     return(
         <section className={styles.banner}>
+            <div className={styles['banner-wrapper']}>
+
+           
             <div className={styles['banner-text']}>
                 <h1>Sportsgear for everyone.</h1>
                 <p>We offer affordable and sustainable sports accessoires of the highest quality, sourced locally from certified partners. Get yours now!</p>
                 <button onClick={()=>navigate("/shop")}>Shop Now </button>
             </div>
             <img className={styles['banner-image']} src={sportBannerImg}></img>
-            
+             </div>
         </section>
     )
 }

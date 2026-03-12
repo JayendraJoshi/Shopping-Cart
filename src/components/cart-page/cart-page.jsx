@@ -15,9 +15,7 @@ export default function CartPage(){
             <h2>Shopping Cart</h2>
             <div className={styles["checkout-overview"]}>
                 <div className={styles["cart-items"]}>
-                    <div className={styles["cart-item"]}>
                         {getCartItemPreviews(cartItems,setCartItems,items)}
-                    </div>
                 </div>
                 <div className={styles["order-summary"]}>
                     <h3>Order Summary</h3>
@@ -44,13 +42,13 @@ export default function CartPage(){
     )
 }
 function getCartItemPreviews(cartItems,setCartItems,items){
-    if(cartItems.length==0) return <p>It's pretty empty in here...</p>
+    if(cartItems.length==0) return <p className={styles["cart-item-placeholder"]}>It's pretty empty in here...</p>
     return cartItems.map(cartItem=>{
         const fullItemObject = items.find((item)=>item.id == cartItem[0]);
         return(
-            <div className="cart-item" key={fullItemObject.id}>
+            <div className={styles["cart-item"]} key={fullItemObject.id}>
                 <div className="item-description">
-                    <Link to={`/shop/item/${fullItemObject.id}`}>{fullItemObject.title}</Link>
+                    <Link to={`/shop/item/${fullItemObject.id}`} className={styles["title"]}>{fullItemObject.title}</Link>
                     <p>{`${fullItemObject.price} € each (Subtotal: ${getSubtotal(cartItems,items)} €)`}</p>
                 </div>    
                 <div className={styles["item-controls"]}>

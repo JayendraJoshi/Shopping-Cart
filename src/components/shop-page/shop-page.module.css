@@ -9,9 +9,12 @@
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:2rem;
+    max-width:1400px;
+    margin-inline:auto;
 }
-h2{
+.shop-page h2{
     margin-bottom:1rem;
+    font-size:2rem;
 }
 .all-items-container > div{
     min-height:250px;

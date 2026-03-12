@@ -5,7 +5,11 @@ export default function ItemsPreview({items, setShowItemPage}){
         items.map((item)=>{
           return  <div className="item" id={item.id} key={item.id} onClick={()=>navigate(`/shop/item/${item.id}`)}>
                     <img src={item.images[0]}></img>
-                    <p>{item.title}</p>
+                    <div className="item-infos-container">
+                        <p className="item-title">{item.title}</p>
+                        <p>{item.rating+" ★"}</p>
+                        <p>{item.price+" €"}</p>
+                    </div>
                  </div>
         })
     )
