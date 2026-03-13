@@ -26,7 +26,7 @@ function BannerSection({navigate}){
 
            
             <div className={styles['banner-text']}>
-                <h1>Sportsgear for everyone.</h1>
+                <h2>Sportsgear for everyone.</h2>
                 <p>We offer affordable and sustainable sports accessoires of the highest quality, sourced locally from certified partners. Get yours now!</p>
                 <button onClick={()=>navigate("/shop")}>Shop Now </button>
             </div>

@@ -171,3 +171,32 @@ footer p:hover{
   text-decoration:underline;
   cursor:pointer;
 }
+
+@media screen and (max-width: 600px) {
+    .nav-controls{
+         justify-content:center;
+    }
+    .nav-wrapper{
+      flex-direction:column;
+      text-align:center;
+    }
+    .item{
+        max-width:200px;
+    }
+    footer, nav{
+      padding:1rem 2rem;
+    }
+    .footer-wrapper{
+      display:grid;
+      grid-template-rows:repeat(4,1fr);
+      gap:2rem;
+      align-items:center;
+      justify-content:center;
+    }
+    .footer-wrapper div{
+      text-align:center;
+    }
+    .socials{
+      justify-content:center;
+    }
+}

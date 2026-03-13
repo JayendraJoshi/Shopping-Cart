@@ -9,7 +9,9 @@
     justify-content:center;
     margin: auto 0;
     gap:4rem;
-    padding:2rem;
+}
+.cart-page h2{
+    margin-bottom:2rem;
 }
 .cart-items{
     display:flex;
@@ -68,6 +70,7 @@
 .order-summary div{
     display:flex;
     justify-content:space-between;
+    gap:2rem;
 }
 .order-summary button{
     align-self:center;
@@ -87,4 +90,19 @@
     border-radius:8px;
     justify-content:center;
     align-items:center;
+}
+@media screen and (max-width:600px){
+    .cart-page{
+        padding:1rem 2rem;
+    }
+    .cart-item{
+        flex-direction:column;
+        text-align:center;
+        gap:1rem;
+    }
+    .checkout-overview{
+        gap:2rem;
+        flex-direction:column;
+    }
+    
 }

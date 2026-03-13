@@ -7,8 +7,8 @@ export default function Footer(){
             <div className="footer-wrapper">
                 <div className="profile">
                     <div className="name-and-description">
-                        <h3>Tropical Trails</h3>
-                        <p>The Nr.1 place for beach accessoires for all.</p>
+                        <h3>SportsWorld</h3>
+                        <p>The Nr.1 place for sport accessoires.</p>
                     </div>
                     <div className="socials">
                         <FontAwesomeIcon icon={faXTwitter} />
@@ -34,8 +34,8 @@ export default function Footer(){
                 </div>
                 <div className="Resources">
                     <h3>Resources</h3>
-                    <p>Summer Care Tips</p>
-                    <p>Beach Guides</p>
+                    <p>Tips & Tricks</p>
+                    <p>Sports Guides</p>
                     <p>Product Guides</p>
                     <p>Extra</p>
                 </div>

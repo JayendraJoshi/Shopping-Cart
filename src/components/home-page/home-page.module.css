@@ -32,7 +32,7 @@
     align-items:flex-start;
     text-align:left;
 }
-.banner-text h1{
+.banner-text h2{
     margin-bottom:1rem;
     font-size:2.5rem;
 }
@@ -78,3 +78,41 @@
     text-decoration:none;
     color:white;
 }
+
+@media screen and (max-width: 1200px) {
+    .bestsellers-items-container{
+        grid-template-columns:repeat(4,1fr);
+    }
+    .banner-wrapper{
+        flex-direction:column;
+        gap:2rem;
+    }
+
+}
+@media screen and (max-width: 950px) {
+    .bestsellers-items-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+@media screen and (max-width: 750px) {
+    .bestsellers-items-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .bestsellers-items-container{
+        grid-template-columns:1fr;
+    }
+    .bestsellers, .banner{
+        padding:1rem 2rem;
+    }
+    .banner-text h2{
+      font-size:2.2rem;
+    }
+    .banner-text{
+        font-size:0.8rem;
+    }
+}
+
+

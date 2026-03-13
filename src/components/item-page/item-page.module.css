@@ -50,3 +50,24 @@
      border:none;
      border-radius:8px;
 }
+@media screen and (max-width:1200px){
+    .item-page{
+        flex-direction:column;
+        padding:2rem;
+    }
+    .item-page img {
+    width: 100%;
+    }
+}
+@media screen and (max-width:500px){
+  .item-controls{
+    flex-direction:column;
+    align-self:center;
+  }  
+  .quantity-controls{
+    justify-content:space-evenly;
+  }
+  .item-page{
+    padding:1rem 2rem;
+  }
+}
