@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-export default function ItemsPreview({items, setShowItemPage}){
+export default function ItemsPreview({items}){
     let navigate = useNavigate();
     return(
         items.map((item)=>{

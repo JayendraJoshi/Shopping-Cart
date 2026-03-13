@@ -1,4 +1,3 @@
-import beachImg from '../../assets/images/beach.jpg';
 import sportBannerImg from '../../assets/images/sport-banner.jpg';
 import styles from './home-page.module.css';
 import { useNavigate } from "react-router";

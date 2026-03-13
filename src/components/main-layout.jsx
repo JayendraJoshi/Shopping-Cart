@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import { useOutletContext } from "react-router";
 import {useEffect, useState} from "react";
 
-export default function MainLayout({}){
+export default function MainLayout(){
     const [items,setItems] = useState([]);
     const contextArray = useOutletContext();
     const cartItems = contextArray[0];
