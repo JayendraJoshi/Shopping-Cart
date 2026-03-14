@@ -34,7 +34,7 @@ Through this project, I learned to build a multi-page React application with dyn
 
 ## Live Demo
 
-- Vercel: 
+- Vercel: https://shopping-cart-alpha-gray.vercel.app/
 
 ## Screenshot
 
