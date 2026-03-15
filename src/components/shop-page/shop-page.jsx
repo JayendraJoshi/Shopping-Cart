@@ -8,10 +8,10 @@ export default function ShopPage(){
     const items = contextArray[0];
     return(
         <section className={styles["shop-page"]}>
-            <h2>All products</h2>
-            <div className={styles['all-items-container']}>
-               <ItemsPreview items={items}></ItemsPreview>
-            </div>
+            <h2>All Products</h2>   
+                <ul>
+                    <ItemsPreview items={items}></ItemsPreview>
+               </ul>
         </section>
     )
 }

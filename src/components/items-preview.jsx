@@ -2,16 +2,16 @@ import { useNavigate } from "react-router";
 export default function ItemsPreview({items}){
     let navigate = useNavigate();
     return(
-        items.map((item)=>{
-          return  <div className="item" id={item.id} key={item.id} onClick={()=>navigate(`/shop/item/${item.id}`)}>
+        items.map((item)=>{     
+          return(  <li className="item" id={item.id} key={item.id} onClick={()=>navigate(`/shop/item/${item.id}`)}>
                     <img src={item.images[0]}></img>
                     <div className="item-infos-container">
                         <p className="item-title">{item.title}</p>
                         <p>{item.rating+" ★"}</p>
                         <p>{item.price+" €"}</p>
                     </div>
-                 </div>
-        })
+                 </li>
+        )})
     )
 }
 

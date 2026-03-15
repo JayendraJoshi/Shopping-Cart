@@ -39,9 +39,9 @@ function BestsellerSection({navigate, bestsellerItems}){
     return(
         <section className={styles['bestsellers']}>   
             <h2>Bestsellers</h2>
-            <div className={styles['bestsellers-items-container']}>
-                <ItemsPreview items={bestsellerItems}></ItemsPreview>
-            </div>
+                <ul>
+                    <ItemsPreview items={bestsellerItems}></ItemsPreview>
+                </ul>
             <button onClick={()=>navigate("/shop")}>View All</button>
         </section>
     )

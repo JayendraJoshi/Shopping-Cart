@@ -14,10 +14,10 @@ export default function CartPage(){
         <section className={styles["cart-page"]}>
             <h2>Shopping Cart</h2>
             <div className={styles["checkout-overview"]}>
-                <div className={styles["cart-items"]}>
+                <ul className={styles["cart-items"]}>
                         {getCartItemPreviews(cartItems,setCartItems,items)}
-                </div>
-                <div className={styles["order-summary"]}>
+                </ul>
+                <aside className={styles["order-summary"]}>
                     <h3>Order Summary</h3>
                     <div className={styles["subtotal-container"]}>
                         <p>Subtotal</p>
@@ -36,7 +36,7 @@ export default function CartPage(){
                         <p className={styles["total-value"]}>{getTotal(cartItems,items)+" €"}</p>
                     </div>
                     <button>Proceed to Checkout</button>
-                </div>
+                </aside>
             </div>
         </section>
     )
@@ -46,22 +46,22 @@ function getCartItemPreviews(cartItems,setCartItems,items){
     return cartItems.map(cartItem=>{
         const fullItemObject = items.find((item)=>item.id == cartItem[0]);
         return(
-            <div className={styles["cart-item"]} key={fullItemObject.id}>
-                <div className="item-description">
-                    <Link to={`/shop/item/${fullItemObject.id}`} className={styles["title"]}>{fullItemObject.title}</Link>
-                    <p>{`${fullItemObject.price} € each (Subtotal: ${getSubtotalOfOneItem(cartItem,items)} €)`}</p>
-                </div>    
-                <div className={styles["item-controls"]}>
-                    <div className={styles["quantity-control"]}>
-                        <button onClick={()=>{reduceQuantityOfCartItem(setCartItems,fullItemObject.id)}}>-</button>
-                         <p className={styles["quantitiy-value"]}>{cartItem[1]}</p> 
-                        <button onClick={()=>increaseQuantityOfCartItem(setCartItems,fullItemObject.id)}>+</button>
+                <li className={styles["cart-item"]} key={fullItemObject.id}>
+                    <div className="item-description">
+                        <Link to={`/shop/item/${fullItemObject.id}`} className={styles["title"]}>{fullItemObject.title}</Link>
+                        <p>{`${fullItemObject.price} € each (Subtotal: ${getSubtotalOfOneItem(cartItem,items)} €)`}</p>
+                    </div>    
+                    <div className={styles["item-controls"]}>
+                        <div className={styles["quantity-control"]}>
+                            <button onClick={()=>{reduceQuantityOfCartItem(setCartItems,fullItemObject.id)}}>-</button>
+                            <p className={styles["quantitiy-value"]}>{cartItem[1]}</p> 
+                            <button onClick={()=>increaseQuantityOfCartItem(setCartItems,fullItemObject.id)}>+</button>
+                        </div>
+                        <button className={styles["delete-button"]} onClick={()=> deleteCartItem(setCartItems,fullItemObject.id)}>
+                            <FontAwesomeIcon icon={faTrash} />
+                        </button>
                     </div>
-                    <button className={styles["delete-button"]} onClick={()=> deleteCartItem(setCartItems,fullItemObject.id)}>
-                        <FontAwesomeIcon icon={faTrash} />
-                    </button>
-                </div>
-            </div>
+                </li>
         )                      
     })
 }

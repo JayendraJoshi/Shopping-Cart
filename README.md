@@ -8,7 +8,7 @@ This project was built as part of [The Odin Project](https://www.theodinproject.
 
 ## What I Learned
 
-Through this project, I learned to build a multi-page React application with dynamic routing, shared state through nested route outlets, and API-driven product data. 
+Through this project, I learned how to build a multi-page React application with dynamic routing, shared state through nested route outlets, and API-driven product data. I also learned how to test React components in isolation by mocking surrounding components and data. In addition, I gained a much stronger understanding of accessibility from both a user and testing perspective, since primary React Testing Library queries (such as getByRole) rely on accessible semantics. I now see accessibility as a core part of both UI quality and testability, and I plan to apply it more deliberately in future projects.
 
 ## Technologies and Tools Used
 
@@ -23,6 +23,10 @@ Through this project, I learned to build a multi-page React application with dyn
 - Vercel
 - Font Awesome
 - DummyJSON API
+- React Testing Library
+- Vitest
+- @testing-library/user-event
+- @testing-library/jest-dom
 
 ## Getting Started
 
@@ -31,6 +35,10 @@ Through this project, I learned to build a multi-page React application with dyn
 	- `npm install`
 3. Start the development server:
 	- `npm run dev`
+
+## Run Tests
+
+1. `npm run test`
 
 ## Live Demo
 

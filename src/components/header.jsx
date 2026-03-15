@@ -23,7 +23,7 @@ export default function Header( {cartItems} ){
                             >Shop</NavLink>
                            <NavLink to="cart" className={({isActive}) => [isActive ? "active" : "",
                                                                             "nav-link"].join(" ")}
-                            ><FontAwesomeIcon icon={faCartShopping}/><span>{getTotalCartItemsQuantity(cartItems)}</span> </NavLink> 
+                            ><FontAwesomeIcon icon={faCartShopping}/><span data-testid="cart-count">{getTotalCartItemsQuantity(cartItems)}</span> </NavLink> 
                         </div>
                     </div>
                 </nav>
