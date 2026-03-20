@@ -131,7 +131,8 @@ function getTotal(cartItems,items){
     let subtotalCents  = getSubtotal(cartItems,items) * 100;
     let shippingCents = getShipping(cartItems,items) * 100;
     let taxCents = getTax(cartItems,items)*100;
-    return (subtotalCents + shippingCents + taxCents) / 100;
+    let totalCents= (subtotalCents + shippingCents + taxCents) / 100;
+    return Math.round(totalCents * 100) / 100;
 }
 function getSubtotalOfOneItem(cartItem,items){
     let fullItem = items.find(item=>item.id==cartItem[0]);

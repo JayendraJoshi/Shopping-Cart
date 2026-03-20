@@ -26,7 +26,7 @@
     padding:1rem;
     border-radius:8px;
     text-align:left;
-    gap:2rem;
+    gap:1rem;
     justify-content:center;
     align-items:center;
 }
@@ -40,7 +40,9 @@
 .cart-item .item-controls{
     display:flex;
     align-items:center;
+    gap:0.4rem;
 }
+
 .cart-item .quantity-control{
     display:flex;
 }
@@ -92,7 +94,7 @@
     justify-content:center;
     align-items:center;
 }
-@media screen and (max-width:600px){
+@media screen and (max-width:750px){
     .cart-page{
         padding:1rem 2rem;
     }
@@ -104,6 +106,9 @@
     .checkout-overview{
         gap:2rem;
         flex-direction:column;
+    }
+    .order-summary{
+        padding:2rem;
     }
     
 }
