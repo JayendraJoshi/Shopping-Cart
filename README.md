@@ -26,6 +26,8 @@ Through this project, I learned how to build a multi-page React application with
 - DummyJSON API
 - React Testing Library
 - Vitest
+- GitHub Actions
+- SonarQube
 - @testing-library/user-event
 - @testing-library/jest-dom
 
