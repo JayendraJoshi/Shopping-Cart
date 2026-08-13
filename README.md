@@ -15,6 +15,7 @@ Through this project, I learned how to build a multi-page React application with
 - HTML5
 - CSS3
 - JavaScript (ES6+)
+- TypeScript
 - React
 - React Router
 - Vite
