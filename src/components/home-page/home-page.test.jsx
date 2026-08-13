@@ -1,10 +1,15 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import HomePage from "./home-page";
-import { createMemoryRouter, RouterProvider, Navigate, Outlet } from "react-router";
+import {
+  createMemoryRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router";
 import App from "../../App";
 import userEvent from "@testing-library/user-event";
-import ItemPage from "../item-page/item-page"
+import ItemPage from "../item-page/item-page";
 
 function MainLayout() {
   const items = [
@@ -212,18 +217,19 @@ describe("Home-page component", () => {
     render(<RouterProvider router={router}></RouterProvider>);
   });
   it("Renders all home-page sections", () => {
-    expect(screen.getByRole("heading", { name: /Bestsellers/i }));
-    expect(screen.getByRole("heading", { name: /Sportsgear for everyone./i }));
+    expect(screen.getByRole("heading", { name: /Bestsellers/i })).toBeDefined();
+    expect(
+      screen.getByRole("heading", { name: /Sportsgear for everyone./i }),
+    ).toBeDefined();
   });
   it("Renders 10 items in bestseller section", () => {
     expect(screen.getAllByRole("listitem")).toHaveLength(10);
   });
-  it("Item click routes to item-page", async() => {
-    const allListItems = screen.getAllByRole("listitem");
+  it("Item click routes to item-page", async () => {
+    const firstLinkItems = screen.getByRole("link", { name: /One/i });
     const user = userEvent.setup();
-    await user.click(allListItems[0]);
-    expect(screen.findByRole("heading"),{name : /One/i});
+    await user.click(firstLinkItems);
+    expect(screen.getByRole("heading", { name: /One/i })).toBeDefined();
     expect(router.state.location.pathname).toBe("/shop/item/1");
-  })
-
+  });
 });

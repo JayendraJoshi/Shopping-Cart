@@ -32,9 +32,9 @@ Through this project, I learned how to build a multi-page React application with
 
 1. Clone the repository
 2. Install dependencies:
-	- `npm install`
+   - `npm install`
 3. Start the development server:
-	- `npm run dev`
+   - `npm run dev`
 
 ## Run Tests
 
@@ -51,12 +51,15 @@ Through this project, I learned how to build a multi-page React application with
 ## Resources
 
 ### API
+
 - https://dummyjson.com/docs/products
 
 ### Images
+
 - https://unsplash.com/photos/man-on-running-field-9HI8UJMSdZA
 
 ### Icons
+
 - https://fontawesome.com/icons/cart-shopping?f=classic&s=solid
 - https://fontawesome.com/icons/trash?f=classic&s=solid
 - https://fontawesome.com/icons/x-twitter?f=brands&s=solid
