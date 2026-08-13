@@ -1,5 +1,7 @@
 # Shopping-Cart
 
+[![Quality control](https://github.com/JayendraJoshi/Shopping-Cart/actions/workflows/workflow.yml/badge.svg)](https://github.com/JayendraJoshi/Shopping-Cart/actions/workflows/workflow.yml)
+
 A responsive React shopping cart app for browsing sports accessories, viewing product details, and managing cart quantities.
 
 ## About This Project

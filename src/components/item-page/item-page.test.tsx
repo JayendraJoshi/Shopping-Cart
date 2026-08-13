@@ -8,7 +8,7 @@ import {
   Navigate,
   Outlet,
 } from "react-router";
-import {userEvent} from "@testing-library/user-event";
+import { userEvent } from "@testing-library/user-event";
 import ItemPage from "./item-page.js";
 
 function HomePage() {
@@ -184,7 +184,7 @@ function MainLayout() {
       images: ["mock-image"],
     },
   ];
-  const contextArray:any = useOutletContext();
+  const contextArray: any = useOutletContext();
   const cartItems = contextArray[0];
   const setCartItems = contextArray[1];
   return (
