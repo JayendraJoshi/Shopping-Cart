@@ -1,20 +1,16 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
-import App from "../../App";
-import { useOutletContext } from "react-router";
-import { createMemoryRouter, RouterProvider, Navigate, Outlet } from "react-router";
-import userEvent from "@testing-library/user-event";
-import ItemPage from "../item-page/item-page";
-
-function HomePage(){
-    return <h1>Home Page</h1>
-}
-function ShopPage(){
-    return <h1>Shop Page</h1>
-}
-function CartPage(){
-    return <h1>Cart Page</h1>
-}
+import App from "../../App.js";
+import {
+  createMemoryRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router";
+import { userEvent } from "@testing-library/user-event";
+import ItemPage from "../item-page/item-page.js";
+import ShopPage from "./shop-page.js";
+import HomePage from "../home-page/home-page.js";
 
 function MainLayout() {
   const items = [
@@ -179,9 +175,8 @@ function MainLayout() {
       images: ["mock-image"],
     },
   ];
-  const contextArray = useOutletContext();
-    const cartItems = contextArray[0];
-    const setCartItems = contextArray[1];
+  const cartItems = null;
+  const setCartItems = null;
   return (
     <main>
       <div className="main-wrapper">
@@ -189,6 +184,9 @@ function MainLayout() {
       </div>
     </main>
   );
+}
+function CartPage() {
+  return <h1>Cart Page</h1>;
 }
 const routes = [
   {
@@ -198,7 +196,7 @@ const routes = [
       {
         element: <MainLayout />,
         children: [
-          { index: true, element: <Navigate to="/shop/item/1" replace /> },
+          { index: true, element: <Navigate to="/shop" replace /> },
           { path: "home", element: <HomePage /> },
           { path: "shop", element: <ShopPage /> },
           { path: "shop/item/:id", element: <ItemPage /> },
@@ -209,42 +207,25 @@ const routes = [
   },
 ];
 
+const router = createMemoryRouter(routes);
 
-describe("Item-page",()=>{
-    beforeEach(()=>{
-        const router = createMemoryRouter(routes);
-        render(<RouterProvider router={router}></RouterProvider>)
-    })
-    it("Renders item-page",()=>{
-        expect(screen.getByRole("heading",{name:/One/i}));
-    })
-    it("Quantity increases when + is clicked and starts at 1", async()=>{
-        const plusButton = screen.getByRole("button",{name:"+"});
-        const quantityP = plusButton.previousElementSibling;
-        expect(quantityP).toHaveTextContent(1);
-        const user = userEvent.setup();
-        await user.click(plusButton);
-        expect(quantityP).toHaveTextContent(2);
-    })
-    it("Quantity decreases when - is clicked but has a minimum of 1",async()=>{
-        const plusButton = screen.getByRole("button",{name:"+"});
-        const minusButton = screen.getByRole("button",{name:"-"});
-        const quantityP = minusButton.nextElementSibling;
-        const user = userEvent.setup();
-        await user.click(plusButton);
-        expect(quantityP).toHaveTextContent(2);
-        await user.click(minusButton);
-        expect(quantityP).toHaveTextContent(1);
-        await user.click(minusButton);
-        await user.click(minusButton);
-        expect(quantityP).toHaveTextContent(1);
-    })
-    it("Clicking on AddToCart button increases number next to cart symbol in header",async ()=>{
-        const quantitySpan = screen.getByTestId("cart-count");
-        expect(quantitySpan).toHaveTextContent(0);
-        const addToCartButton = screen.getByRole("button",{name:/Add to Cart/i});
-        const user = userEvent.setup();
-        await user.click(addToCartButton);
-        expect(quantitySpan).toHaveTextContent(1);
-    })
-})
+describe("Shop-page component", () => {
+  beforeEach(async () => {
+    render(<RouterProvider router={router}></RouterProvider>);
+  });
+  it("Shop-page renders", () => {
+    expect(
+      screen.getByRole("heading", { name: /All Products/i }),
+    ).toBeDefined();
+  });
+  it("All items are displayed", () => {
+    expect(screen.getAllByRole("listitem")).toHaveLength(20);
+  });
+  it("Clicking an item routes user to item page", async () => {
+    const user = userEvent.setup();
+    const allListItems = screen.getByRole("link", { name: /One/i });
+    await user.click(allListItems);
+    expect(screen.getByRole("heading", { name: /One/i })).toBeDefined();
+    expect(router.state.location.pathname).toBe("/shop/item/1");
+  });
+});
