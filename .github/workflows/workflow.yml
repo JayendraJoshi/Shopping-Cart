@@ -23,10 +23,10 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npx eslint .
+        run: npm run eslint
 
       - name: Format with prettier
-        run: npx prettier . --check
+        run: npm rum format:check
         continue-on-error: true
 
   test:
@@ -41,11 +41,11 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: npm ci
+      - name: Install dependencies
         run: npm ci
 
       - name: typescript-check
-        run: npx tsc --noEmit
+        run: npm run typecheck
 
       - name: npm test
         run: npm run test -- --run
